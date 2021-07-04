@@ -1,0 +1,24 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmit(registerForm)">
+    <h1>Register</h1>
+
+    Name: <input type="text" formControlName="name">
+    <span *ngIf="registerForm.get('name').invalid && submitForm">Please enter a valid name</span><br><br>
+
+    Email: <input type="email" formControlName="email">
+    <span *ngIf="registerForm.get('email').invalid && submitForm">Please enter a valid email</span><br><br>
+
+    Password: <input type="password" formControlName="password">
+    <span *ngIf="registerForm.get('password').invalid && submitForm">Please enter a valid password</span><br><br>
+
+    Gender: <input type="text" formControlName="gender">
+    <span *ngIf="registerForm.get('gender').invalid && submitForm">Please enter a valid gender</span><br><br>
+
+    City: <input type="text" formControlName="city">
+    <span *ngIf="registerForm.get('city').invalid && submitForm">Please enter a valid city</span><br><br>
+
+
+    <button type="submit">Register</button>
+</form>
+
+<br>
+<a routerLink="">Login</a>
