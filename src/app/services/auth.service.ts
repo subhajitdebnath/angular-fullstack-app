@@ -32,4 +32,17 @@ export class AuthService {
       return null;
     }
   }
+
+  getLoggedInUserId() {
+    const authData = JSON.parse(localStorage.getItem('authData'));
+    if (authData) {
+      if (authData.userId) {
+        return authData.userId;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
 }

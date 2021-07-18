@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { LoginGuard } from './core/guard/login.guard';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent, canActivate: [LoginGuard]},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'about/:id', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'post/:id', component: PostDetailsComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

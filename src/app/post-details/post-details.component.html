@@ -1,0 +1,36 @@
+<div class="container" *ngIf="post">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{post.createdBy.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{post.createdAt | date}}</h6>
+                  <p class="card-text">{{post.content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form [formGroup]="commentForm" (ngSubmit)="commentSubmit(commentForm)">
+    <div class="row mb-3">
+      <div class="col-sm-11">
+        <input type="text" class="form-control" placeholder="add your comment!" formControlName="content">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Comment</button>
+</form>
+
+
+<a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="javascript:void(0);"><span class="glyphicon glyphicon-comment"></span> {{comments.length}} comment</a>
+
+
+<div class="media-body" *ngFor="let comment of comments; let i = index">
+    <div class="well well-lg">
+        <h4 class="media-heading text-uppercase reviews">{{comment.user.name}}</h4>
+        <p class="media-heading text-uppercase reviews">{{comment.createdAt | date}}</p>
+        <p class="media-comment">
+            {{comment.content}}
+        </p>
+    </div>              
+</div>

@@ -42,7 +42,60 @@ export class BackendService {
       .set('Authorization', 'Bearer ' + this.authService.getToken())
     };
 
-    return this.httpClient.get('http://localhost/php-rest/api/user-profile.php', header);
+    const body = {
+      id: this.authService.getLoggedInUserId()
+    }
+
+    return this.httpClient.post('http://localhost/php-rest/api/user-profile.php', body, header);
+  }
+
+  getAllPosts() {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.get('http://localhost/php-rest/api/get-all-posts.php', header);
+  }
+
+  createPost(payload) {
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/create-posts.php', payload, header);
+  }
+
+  getPostDetails(payload) {
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-post-details.php', payload, header);
+  }
+
+  getPostComments(payload) {
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-post-comments.php', payload, header);
+  }
+
+  createComment(payload) {
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/create-comment.php', payload, header);
   }
 
 }
