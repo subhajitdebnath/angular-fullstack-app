@@ -13,6 +13,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { TextBoxComponent } from './text-box/text-box.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    UserListComponent,
+    TextBoxComponent
   ],
   imports: [
     BrowserModule,

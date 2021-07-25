@@ -88,6 +88,26 @@ export class BackendService {
     return this.httpClient.post('http://localhost/php-rest/api/get-post-comments.php', payload, header);
   }
 
+  getPostLikes(payload) {
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-post-likes.php', payload, header);
+  }
+
+  addRemoveLikes(payload) {
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/add-remove-like.php', payload, header);
+  }
+
   createComment(payload) {
 
     const header = {
@@ -96,6 +116,33 @@ export class BackendService {
     };
 
     return this.httpClient.post('http://localhost/php-rest/api/create-comment.php', payload, header);
+  }
+
+  getAllUsers(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-all-users.php', payload, header);
+  }
+
+  getChatMessages(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-chat-messages.php', payload, header);
+  }
+
+  sendChatMessages(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/send-chat-messages.php', payload, header);
   }
 
 }

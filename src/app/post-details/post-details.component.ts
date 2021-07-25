@@ -14,6 +14,9 @@ export class PostDetailsComponent implements OnInit {
 
   post = null;
   comments = [];
+  likes = [];
+  likeCount = 0;
+  likeText = "Like";
   commentForm: FormGroup;
 
   constructor(
@@ -33,6 +36,7 @@ export class PostDetailsComponent implements OnInit {
 
       this.getPostDetails(params.id);
       this.getPostComments(params.id);
+      this.getPostLikes(params.id);
     });
   }
 
@@ -53,6 +57,48 @@ export class PostDetailsComponent implements OnInit {
     };
     this.backendService.getPostComments(payload).subscribe((data: any) => {
       this.comments = data.data;
+    }, err => {
+      console.log(err)
+    });
+  }
+
+  getPostLikes(postId) {
+    const payload = {
+      postId: postId
+    };
+    this.backendService.getPostLikes(payload).subscribe((data: any) => {
+      this.likes = data.data;
+      this.likeCount = this.likes.length;
+
+      // checking for like status of a user
+      let likeState = this.likes.filter((like: any) => like.user.userId === this.authService.getLoggedInUserId());
+      if (likeState.length === 0) {
+        this.likeText = 'Like';
+      } else {
+        this.likeText = 'Unlike';
+      }
+
+    }, err => {
+      console.log(err)
+    });
+  }
+
+  addRemoveLike(postId) {
+    const payload = {
+      userId: this.authService.getLoggedInUserId(),
+      postId: postId
+    };
+    this.backendService.addRemoveLikes(payload).subscribe((data: any) => {
+      console.log(data);
+      if (data.status === "add") {
+        ++ this.likeCount;
+        this.likeText = 'Unlike';
+      } else if (data.status === "remove") {
+        -- this.likeCount;
+        this.likeText = 'Like';
+      }
+      // this.likes = data.data;
+      // this.likeCount = this.likes.length;
     }, err => {
       console.log(err)
     });

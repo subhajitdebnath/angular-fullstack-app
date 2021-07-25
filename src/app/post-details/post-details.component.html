@@ -12,6 +12,12 @@
     </div>
 </div>
 
+<div>
+    <a href="javascript:void(0)" (click)="addRemoveLike(post.id)">{{likeText}}</a> | 
+    {{likeCount}} people like this post
+    <!-- https://getbootstrap.com/docs/4.0/components/modal/ -->
+</div>
+
 <form [formGroup]="commentForm" (ngSubmit)="commentSubmit(commentForm)">
     <div class="row mb-3">
       <div class="col-sm-11">
