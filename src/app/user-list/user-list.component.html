@@ -7,6 +7,7 @@
                   <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
                   <p class="card-text">{{user.city}}</p>
                   <a routerLink="/texts/{{user.userId}}" class="card-link">Start Conversation</a>
+                  <a href="javascript:void(0);" (click)="addFriend(user.userId)" class="card-link">Add Friend</a>
                 </div>
             </div>
         </div>

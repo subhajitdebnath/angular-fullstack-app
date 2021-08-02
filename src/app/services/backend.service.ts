@@ -145,4 +145,13 @@ export class BackendService {
     return this.httpClient.post('http://localhost/php-rest/api/send-chat-messages.php', payload, header);
   }
 
+  addFriends(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/add-friend.php', payload, header);
+  }
+
 }
