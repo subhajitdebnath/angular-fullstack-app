@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { TextBoxComponent } from './text-box/text-box.component';
+import { FriendRequestComponent } from './friend-request/friend-request.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TextBoxComponent } from './text-box/text-box.component';
     LoginComponent,
     PostDetailsComponent,
     UserListComponent,
-    TextBoxComponent
+    TextBoxComponent,
+    FriendRequestComponent
   ],
   imports: [
     BrowserModule,

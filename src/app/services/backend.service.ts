@@ -154,4 +154,22 @@ export class BackendService {
     return this.httpClient.post('http://localhost/php-rest/api/add-friend.php', payload, header);
   }
 
+  getAllFR(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-friend-requests.php', payload, header);
+  }
+
+  manageFR(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/manage-friend-request.php', payload, header);
+  }
+
 }
