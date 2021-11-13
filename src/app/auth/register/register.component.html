@@ -13,7 +13,12 @@
     Gender: <input type="text" formControlName="gender">
     <span *ngIf="registerForm.get('gender').invalid && submitForm">Please enter a valid gender</span><br><br>
 
-    City: <input type="text" formControlName="city">
+    City: 
+    <!-- <input type="text" formControlName="city"> -->
+    <select formControlName="city">
+        <option value="">Select your city</option>
+        <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
+    </select>
     <span *ngIf="registerForm.get('city').invalid && submitForm">Please enter a valid city</span><br><br>
 
 

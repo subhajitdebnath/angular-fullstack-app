@@ -1,0 +1,23 @@
+<h3>Friends</h3>
+
+<div class="container">
+    <div class="row" *ngIf="friends.length > 0">
+        <div class="col" *ngFor="let friend of friends; let i = index">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{friend.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{friend.email}}</h6>
+                  <p class="card-text">{{friend.city}}</p>
+                  <a routerLink="/texts/{{friend.userId}}" class="card-link">Chat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="friends.length === 0">
+        <div class="col">
+            <div class="card">
+                <p>You don't have any friends</p>
+            </div>
+        </div>
+    </div>
+</div>

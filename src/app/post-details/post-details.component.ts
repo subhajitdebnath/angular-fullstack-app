@@ -72,6 +72,8 @@ export class PostDetailsComponent implements OnInit {
 
       // checking for like status of a user
       let likeState = this.likes.filter((like: any) => like.user.userId === this.authService.getLoggedInUserId());
+
+      // console.log(likeState)
       if (likeState.length === 0) {
         this.likeText = 'Like';
       } else {

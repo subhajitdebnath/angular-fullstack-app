@@ -16,6 +16,9 @@ import { PostDetailsComponent } from './post-details/post-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { TextBoxComponent } from './text-box/text-box.component';
 import { FriendRequestComponent } from './friend-request/friend-request.component';
+import { MyFriendsComponent } from './my-friends/my-friends.component';
+import { UpdateProfilePicComponent } from './update-profile-pic/update-profile-pic.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { FriendRequestComponent } from './friend-request/friend-request.componen
     PostDetailsComponent,
     UserListComponent,
     TextBoxComponent,
-    FriendRequestComponent
+    FriendRequestComponent,
+    MyFriendsComponent,
+    UpdateProfilePicComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

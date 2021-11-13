@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private userInfo = new BehaviorSubject(null);
+  data = this.userInfo.asObservable();
+
+  updateUserInfo(data: any){
+    this.userInfo.next(data);
+  }
 
   constructor() { }
 

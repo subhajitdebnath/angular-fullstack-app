@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,10 @@ export class AppComponent {
       age: 20
     }
   ];
+
+  constructor(
+    public authService: AuthService,
+  ) { }
 
   changeTitle () {
     this.title = 'Changed the title from button click';

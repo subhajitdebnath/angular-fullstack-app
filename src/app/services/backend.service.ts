@@ -22,6 +22,10 @@ export class BackendService {
     return data;
   }
 
+  getCities() {
+    return this.httpClient.get('http://localhost/php-rest/api/get-cities.php');
+  }
+
   getPosts() {
     // return this.httpClient.get('https://jsonplaceholder.typicode.com/postsss');
     return this.httpClient.get('http://localhost/full-stack/Apis/data.php');
@@ -170,6 +174,24 @@ export class BackendService {
     };
 
     return this.httpClient.post('http://localhost/php-rest/api/manage-friend-request.php', payload, header);
+  }
+
+  getAllFriends(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/get-friends.php', payload, header);
+  }
+
+  imageUpload(payload) {
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.authService.getToken())
+    };
+
+    return this.httpClient.post('http://localhost/php-rest/api/image-upload.php', payload, header);
   }
 
 }

@@ -39,6 +39,8 @@ export class HomeComponent implements OnInit {
   getProfile() {
     this.backendService.getProfile().subscribe(data => {
       // console.log(data);
+      // emmiting the user info to auth service
+      this.authService.updateUserInfo(data);
     }, err => {
       console.log(err)
     });
@@ -47,7 +49,7 @@ export class HomeComponent implements OnInit {
   getAllPosts() {
     this.backendService.getAllPosts().subscribe((data: any) => {
       this.posts = data.data;
-      console.log(this.posts)
+      // console.log(this.posts)
     }, err => {
       console.log(err)
     });

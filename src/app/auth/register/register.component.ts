@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   submitForm = false;
+  cities: any = [];
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +30,8 @@ export class RegisterComponent implements OnInit {
       gender: ['', Validators.required],
       city: ['', Validators.required],
     });
+
+    this.getCities();
   }
 
   registerSubmit(form: FormGroup) {
@@ -42,6 +45,15 @@ export class RegisterComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  getCities() {
+    this.backendService.getCities().subscribe((data: any) => {
+      this.cities = data.data;
+      console.log(data);
+    }, err => {
+      console.log(err);
+    })
   }
 
 }
